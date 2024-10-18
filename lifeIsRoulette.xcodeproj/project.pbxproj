@@ -1,0 +1,425 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1DF403512CC2841900963350 /* lifeIsRouletteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF403502CC2841900963350 /* lifeIsRouletteApp.swift */; };
+		1DF403532CC2841900963350 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF403522CC2841900963350 /* ContentView.swift */; };
+		1DF403552CC2841A00963350 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DF403542CC2841A00963350 /* Assets.xcassets */; };
+		1DF403582CC2841A00963350 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DF403572CC2841A00963350 /* Preview Assets.xcassets */; };
+		1DF403622CC2856900963350 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF403612CC2856900963350 /* App.swift */; };
+		1DF403642CC285C300963350 /* DiaryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF403632CC285C300963350 /* DiaryEntry.swift */; };
+		1DF403662CC285FC00963350 /* RouletteOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF403652CC285FC00963350 /* RouletteOption.swift */; };
+		1DF403682CC2861000963350 /* WeekdayRouletteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF403672CC2861000963350 /* WeekdayRouletteViewModel.swift */; };
+		1DF4036A2CC2862C00963350 /* WeekdayRouletteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF403692CC2862C00963350 /* WeekdayRouletteView.swift */; };
+		1DF4036C2CC2875C00963350 /* WeekendRouletteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF4036B2CC2875C00963350 /* WeekendRouletteView.swift */; };
+		1DF4036E2CC2879100963350 /* WeekendRouletteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF4036D2CC2879100963350 /* WeekendRouletteViewModel.swift */; };
+		1DF403702CC287E600963350 /* ActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF4036F2CC287E600963350 /* ActionView.swift */; };
+		1DF403722CC287F800963350 /* ActionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF403712CC287F800963350 /* ActionViewModel.swift */; };
+		1DF403742CC2880300963350 /* DiaryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF403732CC2880300963350 /* DiaryListView.swift */; };
+		1DF403762CC2882500963350 /* DiaryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF403752CC2882500963350 /* DiaryListViewModel.swift */; };
+		1DF403782CC2888A00963350 /* DiaryEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF403772CC2888A00963350 /* DiaryEditView.swift */; };
+		1DF4037A2CC288B000963350 /* DiaryEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF403792CC288B000963350 /* DiaryEditViewModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1DF4034D2CC2841900963350 /* lifeIsRoulette.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lifeIsRoulette.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DF403502CC2841900963350 /* lifeIsRouletteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lifeIsRouletteApp.swift; sourceTree = "<group>"; };
+		1DF403522CC2841900963350 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1DF403542CC2841A00963350 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1DF403572CC2841A00963350 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1DF403612CC2856900963350 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		1DF403632CC285C300963350 /* DiaryEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryEntry.swift; sourceTree = "<group>"; };
+		1DF403652CC285FC00963350 /* RouletteOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouletteOption.swift; sourceTree = "<group>"; };
+		1DF403672CC2861000963350 /* WeekdayRouletteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdayRouletteViewModel.swift; sourceTree = "<group>"; };
+		1DF403692CC2862C00963350 /* WeekdayRouletteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdayRouletteView.swift; sourceTree = "<group>"; };
+		1DF4036B2CC2875C00963350 /* WeekendRouletteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekendRouletteView.swift; sourceTree = "<group>"; };
+		1DF4036D2CC2879100963350 /* WeekendRouletteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekendRouletteViewModel.swift; sourceTree = "<group>"; };
+		1DF4036F2CC287E600963350 /* ActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionView.swift; sourceTree = "<group>"; };
+		1DF403712CC287F800963350 /* ActionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewModel.swift; sourceTree = "<group>"; };
+		1DF403732CC2880300963350 /* DiaryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryListView.swift; sourceTree = "<group>"; };
+		1DF403752CC2882500963350 /* DiaryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryListViewModel.swift; sourceTree = "<group>"; };
+		1DF403772CC2888A00963350 /* DiaryEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryEditView.swift; sourceTree = "<group>"; };
+		1DF403792CC288B000963350 /* DiaryEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryEditViewModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1DF4034A2CC2841900963350 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1DF403442CC2841900963350 = {
+			isa = PBXGroup;
+			children = (
+				1DF4034F2CC2841900963350 /* lifeIsRoulette */,
+				1DF4034E2CC2841900963350 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1DF4034E2CC2841900963350 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1DF4034D2CC2841900963350 /* lifeIsRoulette.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1DF4034F2CC2841900963350 /* lifeIsRoulette */ = {
+			isa = PBXGroup;
+			children = (
+				1DF403602CC2855700963350 /* Views */,
+				1DF4035F2CC2854B00963350 /* ViewModels */,
+				1DF4035E2CC2853E00963350 /* Models */,
+				1DF403502CC2841900963350 /* lifeIsRouletteApp.swift */,
+				1DF403522CC2841900963350 /* ContentView.swift */,
+				1DF403542CC2841A00963350 /* Assets.xcassets */,
+				1DF403562CC2841A00963350 /* Preview Content */,
+				1DF403612CC2856900963350 /* App.swift */,
+			);
+			path = lifeIsRoulette;
+			sourceTree = "<group>";
+		};
+		1DF403562CC2841A00963350 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				1DF403572CC2841A00963350 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1DF4035E2CC2853E00963350 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1DF403632CC285C300963350 /* DiaryEntry.swift */,
+				1DF403652CC285FC00963350 /* RouletteOption.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1DF4035F2CC2854B00963350 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				1DF403672CC2861000963350 /* WeekdayRouletteViewModel.swift */,
+				1DF4036D2CC2879100963350 /* WeekendRouletteViewModel.swift */,
+				1DF403712CC287F800963350 /* ActionViewModel.swift */,
+				1DF403752CC2882500963350 /* DiaryListViewModel.swift */,
+				1DF403792CC288B000963350 /* DiaryEditViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		1DF403602CC2855700963350 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1DF403692CC2862C00963350 /* WeekdayRouletteView.swift */,
+				1DF4036B2CC2875C00963350 /* WeekendRouletteView.swift */,
+				1DF4036F2CC287E600963350 /* ActionView.swift */,
+				1DF403732CC2880300963350 /* DiaryListView.swift */,
+				1DF403772CC2888A00963350 /* DiaryEditView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1DF4034C2CC2841900963350 /* lifeIsRoulette */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DF4035B2CC2841A00963350 /* Build configuration list for PBXNativeTarget "lifeIsRoulette" */;
+			buildPhases = (
+				1DF403492CC2841900963350 /* Sources */,
+				1DF4034A2CC2841900963350 /* Frameworks */,
+				1DF4034B2CC2841900963350 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = lifeIsRoulette;
+			productName = lifeIsRoulette;
+			productReference = 1DF4034D2CC2841900963350 /* lifeIsRoulette.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1DF403452CC2841900963350 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1510;
+				LastUpgradeCheck = 1510;
+				TargetAttributes = {
+					1DF4034C2CC2841900963350 = {
+						CreatedOnToolsVersion = 15.1;
+					};
+				};
+			};
+			buildConfigurationList = 1DF403482CC2841900963350 /* Build configuration list for PBXProject "lifeIsRoulette" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1DF403442CC2841900963350;
+			productRefGroup = 1DF4034E2CC2841900963350 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1DF4034C2CC2841900963350 /* lifeIsRoulette */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1DF4034B2CC2841900963350 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DF403582CC2841A00963350 /* Preview Assets.xcassets in Resources */,
+				1DF403552CC2841A00963350 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1DF403492CC2841900963350 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DF403702CC287E600963350 /* ActionView.swift in Sources */,
+				1DF4036E2CC2879100963350 /* WeekendRouletteViewModel.swift in Sources */,
+				1DF403782CC2888A00963350 /* DiaryEditView.swift in Sources */,
+				1DF403622CC2856900963350 /* App.swift in Sources */,
+				1DF403682CC2861000963350 /* WeekdayRouletteViewModel.swift in Sources */,
+				1DF403532CC2841900963350 /* ContentView.swift in Sources */,
+				1DF4036A2CC2862C00963350 /* WeekdayRouletteView.swift in Sources */,
+				1DF403642CC285C300963350 /* DiaryEntry.swift in Sources */,
+				1DF403762CC2882500963350 /* DiaryListViewModel.swift in Sources */,
+				1DF4037A2CC288B000963350 /* DiaryEditViewModel.swift in Sources */,
+				1DF403512CC2841900963350 /* lifeIsRouletteApp.swift in Sources */,
+				1DF4036C2CC2875C00963350 /* WeekendRouletteView.swift in Sources */,
+				1DF403662CC285FC00963350 /* RouletteOption.swift in Sources */,
+				1DF403742CC2880300963350 /* DiaryListView.swift in Sources */,
+				1DF403722CC287F800963350 /* ActionViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1DF403592CC2841A00963350 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1DF4035A2CC2841A00963350 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1DF4035C2CC2841A00963350 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"lifeIsRoulette/Preview Content\"";
+				DEVELOPMENT_TEAM = FC5G5LU4MJ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lifeisroulette.lifeIsRoulette;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1DF4035D2CC2841A00963350 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"lifeIsRoulette/Preview Content\"";
+				DEVELOPMENT_TEAM = FC5G5LU4MJ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lifeisroulette.lifeIsRoulette;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DF403482CC2841900963350 /* Build configuration list for PBXProject "lifeIsRoulette" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DF403592CC2841A00963350 /* Debug */,
+				1DF4035A2CC2841A00963350 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DF4035B2CC2841A00963350 /* Build configuration list for PBXNativeTarget "lifeIsRoulette" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DF4035C2CC2841A00963350 /* Debug */,
+				1DF4035D2CC2841A00963350 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1DF403452CC2841900963350 /* Project object */;
+}
