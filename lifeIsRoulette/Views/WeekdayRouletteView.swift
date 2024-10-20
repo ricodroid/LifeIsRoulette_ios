@@ -19,6 +19,8 @@ struct WeekdayRouletteView: View {
                 Text(option.name)
             }
             
+            RouletteView().frame(width: 300, height: 300) 
+            
             Button(action: {
                 viewModel.spinRoulette()
             }) {
