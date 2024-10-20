@@ -9,17 +9,22 @@ import SwiftUI
 
 struct WeekdayRouletteView: View {
     @StateObject var viewModel = WeekdayRouletteViewModel()
+    @State private var selectedSegment: RouletteSegment? = nil
     
     var body: some View {
         VStack {
-            Text("平日ルーレット")
-                .font(.largeTitle)
-            
-            List(viewModel.options) { option in
-                Text(option.name)
+            if let selectedSegment = selectedSegment {
+                Text("選ばれた項目: \(selectedSegment.number)")
+                    .font(.largeTitle)
+                    .padding()
+            } else {
+                Text("ルーレットを回して項目を選択")
+                    .font(.largeTitle)
+                    .padding()
             }
             
-            RouletteView().frame(width: 300, height: 300) 
+            RouletteView(segments: viewModel.rouletteSegments, selectedSegment: $selectedSegment)
+                .frame(width: 300, height: 300)
             
             Button(action: {
                 viewModel.spinRoulette()

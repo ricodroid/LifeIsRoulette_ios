@@ -4,8 +4,8 @@
 //
 //  Created by riko on 2024/10/20.
 //
-
 import SwiftUI
+
 
 struct RouletteSegment: Identifiable {
     var id = UUID()
@@ -14,23 +14,18 @@ struct RouletteSegment: Identifiable {
 }
 
 struct RouletteView: View {
-    let segments: [RouletteSegment] = [
-        RouletteSegment(number: 1, color: .yellow),
-        RouletteSegment(number: 2, color: .orange),
-        RouletteSegment(number: 3, color: .red),
-        RouletteSegment(number: 4, color: .pink),
-        RouletteSegment(number: 5, color: .purple),
-        RouletteSegment(number: 6, color: .blue),
-        RouletteSegment(number: 7, color: .cyan),
-        RouletteSegment(number: 8, color: .green),
-        RouletteSegment(number: 9, color: .mint)
-    ]
+    let segments: [RouletteSegment]
+    @Binding var selectedSegment: RouletteSegment?
+    @State private var rotation: Double = 0
+    @State private var isSpinning = false
     
     var body: some View {
         GeometryReader { geometry in
             let radius = min(geometry.size.width, geometry.size.height) / 2
             let center = CGPoint(x: geometry.size.width / 2, y: geometry.size.height / 2)
+            
             ZStack {
+                // ルーレットの描画
                 ForEach(segments.indices, id: \.self) { index in
                     let startAngle = Angle.degrees(Double(index) / Double(segments.count) * 360)
                     let endAngle = Angle.degrees(Double(index + 1) / Double(segments.count) * 360)
@@ -44,7 +39,6 @@ struct RouletteView: View {
                             path.stroke(Color.black, lineWidth: 2)
                         )
                     
-                    // Add the number label
                     let angle = startAngle + (endAngle - startAngle) / 2
                     let labelRadius = radius * 0.7
                     let xOffset = center.x + cos(CGFloat(angle.radians)) * labelRadius
@@ -56,7 +50,48 @@ struct RouletteView: View {
                         .position(x: xOffset, y: yOffset)
                 }
             }
-            .frame(width: geometry.size.width, height: geometry.size.height)
+            .rotationEffect(.degrees(rotation))
+            .animation(isSpinning ? .easeOut(duration: 3) : .none, value: rotation)
+            .onTapGesture {
+                spinRoulette()
+            }
+            
+            // ポインターの描画 (固定で表示される)
+            TrianglePointer()
+                .fill(Color.black)
+                .frame(width: 20, height: 20)
+                .position(x: geometry.size.width - 10, y: geometry.size.height / 2)
         }
+    }
+    
+    func spinRoulette() {
+        isSpinning = true
+        let randomRotation = Double.random(in: 720...1080) // 2〜3回転
+        withAnimation {
+            rotation += randomRotation
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            isSpinning = false
+            // ポインターの位置でセグメントを選ぶロジック
+            let pointerAngle = 0.0 // 3時の方向
+            let totalRotation = rotation.truncatingRemainder(dividingBy: 360)
+            let segmentAngle = 360.0 / Double(segments.count)
+            
+            let correctedRotation = totalRotation - pointerAngle
+            let selectedIndex = Int((360 - correctedRotation).truncatingRemainder(dividingBy: 360) / segmentAngle)
+            
+            selectedSegment = segments[selectedIndex >= 0 ? selectedIndex : (selectedIndex + segments.count) % segments.count]
+        }
+    }
+}
+
+struct TrianglePointer: Shape {
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+        path.move(to: CGPoint(x: rect.midX, y: rect.minY)) // 上の頂点
+        path.addLine(to: CGPoint(x: rect.maxX, y: rect.maxY)) // 右下
+        path.addLine(to: CGPoint(x: rect.minX, y: rect.maxY)) // 左下
+        path.closeSubpath()
+        return path
     }
 }

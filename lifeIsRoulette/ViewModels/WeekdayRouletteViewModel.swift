@@ -10,6 +10,17 @@ import Foundation
 
 class WeekdayRouletteViewModel: ObservableObject {
     @Published var options: [RouletteOption] = []
+    let rouletteSegments: [RouletteSegment] = [
+        RouletteSegment(number: 1, color: .yellow),
+        RouletteSegment(number: 2, color: .orange),
+        RouletteSegment(number: 3, color: .red),
+        RouletteSegment(number: 4, color: .pink),
+        RouletteSegment(number: 5, color: .purple),
+        RouletteSegment(number: 6, color: .blue),
+        RouletteSegment(number: 7, color: .cyan),
+        RouletteSegment(number: 8, color: .green),
+        RouletteSegment(number: 9, color: .mint)
+    ]
     
     init() {
         options = loadWeekdayOptions()
