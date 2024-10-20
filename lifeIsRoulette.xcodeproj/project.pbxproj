@@ -25,6 +25,8 @@
 		1DF403782CC2888A00963350 /* DiaryEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF403772CC2888A00963350 /* DiaryEditView.swift */; };
 		1DF4037A2CC288B000963350 /* DiaryEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF403792CC288B000963350 /* DiaryEditViewModel.swift */; };
 		3FBEEC0C2CC4F39600963AC6 /* RouletteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBEEC0B2CC4F39600963AC6 /* RouletteView.swift */; };
+		3FBEEC0F2CC4FA7800963AC6 /* default_weed_day_roulette_items.json in Resources */ = {isa = PBXBuildFile; fileRef = 3FBEEC0E2CC4FA7800963AC6 /* default_weed_day_roulette_items.json */; };
+		3FBEEC112CC4FBCA00963AC6 /* default_weekend_roulette_items.json in Resources */ = {isa = PBXBuildFile; fileRef = 3FBEEC102CC4FBCA00963AC6 /* default_weekend_roulette_items.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +49,8 @@
 		1DF403772CC2888A00963350 /* DiaryEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryEditView.swift; sourceTree = "<group>"; };
 		1DF403792CC288B000963350 /* DiaryEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryEditViewModel.swift; sourceTree = "<group>"; };
 		3FBEEC0B2CC4F39600963AC6 /* RouletteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouletteView.swift; sourceTree = "<group>"; };
+		3FBEEC0E2CC4FA7800963AC6 /* default_weed_day_roulette_items.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = default_weed_day_roulette_items.json; sourceTree = "<group>"; };
+		3FBEEC102CC4FBCA00963AC6 /* default_weekend_roulette_items.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = default_weekend_roulette_items.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,7 @@
 		1DF4034F2CC2841900963350 /* lifeIsRoulette */ = {
 			isa = PBXGroup;
 			children = (
+				3FBEEC0D2CC4F9BB00963AC6 /* Resources */,
 				1DF403602CC2855700963350 /* Views */,
 				1DF4035F2CC2854B00963350 /* ViewModels */,
 				1DF4035E2CC2853E00963350 /* Models */,
@@ -141,6 +146,15 @@
 			path = components;
 			sourceTree = "<group>";
 		};
+		3FBEEC0D2CC4F9BB00963AC6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3FBEEC0E2CC4FA7800963AC6 /* default_weed_day_roulette_items.json */,
+				3FBEEC102CC4FBCA00963AC6 /* default_weekend_roulette_items.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -201,6 +215,8 @@
 			files = (
 				1DF403582CC2841A00963350 /* Preview Assets.xcassets in Resources */,
 				1DF403552CC2841A00963350 /* Assets.xcassets in Resources */,
+				3FBEEC112CC4FBCA00963AC6 /* default_weekend_roulette_items.json in Resources */,
+				3FBEEC0F2CC4FA7800963AC6 /* default_weed_day_roulette_items.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
