@@ -88,9 +88,9 @@ struct RouletteView: View {
 struct TrianglePointer: Shape {
     func path(in rect: CGRect) -> Path {
         var path = Path()
-        path.move(to: CGPoint(x: rect.midX, y: rect.minY)) // 上の頂点
-        path.addLine(to: CGPoint(x: rect.maxX, y: rect.maxY)) // 右下
-        path.addLine(to: CGPoint(x: rect.minX, y: rect.maxY)) // 左下
+        path.move(to: CGPoint(x: rect.minX, y: rect.midY)) // 左側の頂点
+        path.addLine(to: CGPoint(x: rect.maxX, y: rect.minY)) // 上の頂点（底辺より長め）
+        path.addLine(to: CGPoint(x: rect.maxX, y: rect.maxY)) // 下の頂点（底辺より長め）
         path.closeSubpath()
         return path
     }
