@@ -58,9 +58,9 @@ struct RouletteView: View {
             
             // ポインターの描画 (固定で表示される)
             TrianglePointer()
-                .fill(Color.black)
-                .frame(width: 20, height: 20)
-                .position(x: geometry.size.width - 10, y: geometry.size.height / 2)
+                .fill(Color.red)
+                .frame(width: 25, height: 20)
+                .position(x: geometry.size.width - 5, y: geometry.size.height / 2)
         }
     }
     
