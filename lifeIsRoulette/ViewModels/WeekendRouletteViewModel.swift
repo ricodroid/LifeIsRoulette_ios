@@ -6,23 +6,51 @@
 //
 
 import Foundation
-
+import SwiftUI
 
 class WeekendRouletteViewModel: ObservableObject {
-    @Published var options: [RouletteOption] = []
+    @Published var options: [String] = []
+    @Published var rouletteSegments: [RouletteSegment] = []
     
     init() {
-        options = loadWeekdayOptions()
+        options = loadWeedEndRouletteItems()
+        setupRouletteSegments()
     }
     
-    private func loadWeekdayOptions() -> [RouletteOption] {
-        return [
-            RouletteOption(id: UUID(), name: "Option 1", type: .weekday),
-            RouletteOption(id: UUID(), name: "Option 2", type: .weekday)
+    private func loadWeedEndRouletteItems() -> [String] {
+        guard let url = Bundle.main.url(forResource: "default_weekend_roulette_items", withExtension: "json") else {
+            print("JSONファイルが見つかりません")
+            return []
+        }
+        
+        do {
+            let data = try Data(contentsOf: url)
+            if let items = try JSONSerialization.jsonObject(with: data, options: []) as? [String] {
+                return items
+            } else {
+                print("JSONのパースに失敗しました")
+                return []
+            }
+        } catch {
+            print("JSONファイルの読み込みエラー: \(error)")
+            return []
+        }
+    }
+    
+    private func setupRouletteSegments() {
+        let randomOptions = options.shuffled().prefix(10) // ランダムに9項目を選択
+        rouletteSegments = randomOptions.enumerated().map { index, option in
+            RouletteSegment(number: index + 1, label: option, color: randomColor())
+        }
+    }
+    
+    private func randomColor() -> Color {
+        // 25色のカラーパレットを用意
+        let colors: [Color] = [
+            .yellow, .orange, .red, .pink, .purple, .blue, .cyan, .green, .mint,
+            .indigo, .brown, .gray, .teal, .white, .mint, .secondary, .teal
         ]
-    }
-    
-    func spinRoulette() {
-        // ルーレットを回すロジックをここに実装
+        
+        return colors.randomElement() ?? .gray
     }
 }
