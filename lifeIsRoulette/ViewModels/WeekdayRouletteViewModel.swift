@@ -38,16 +38,21 @@ class WeekdayRouletteViewModel: ObservableObject {
            }
        }
     
-    private func setupRouletteSegments() {
-           let randomOptions = options.shuffled().prefix(9) // ランダムに9項目を選択
+        private func setupRouletteSegments() {
+           let randomOptions = options.shuffled().prefix(10) // ランダムに9項目を選択
            rouletteSegments = randomOptions.enumerated().map { index, option in
                RouletteSegment(number: index + 1, label: option, color: randomColor())
            }
        }
        
-       private func randomColor() -> Color {
-           // 任意の色をランダムに生成
-           let colors: [Color] = [.yellow, .orange, .red, .pink, .purple, .blue, .cyan, .green, .mint]
-           return colors.randomElement() ?? .gray
-       }
+    private func randomColor() -> Color {
+        // 25色のカラーパレットを用意
+        let colors: [Color] = [
+            .yellow, .orange, .red, .pink, .purple, .blue, .cyan, .green, .mint,
+            .indigo, .brown, .gray, .teal, .white, .mint, .secondary, .teal
+        ]
+        
+        return colors.randomElement() ?? .gray
+    }
+
 }
