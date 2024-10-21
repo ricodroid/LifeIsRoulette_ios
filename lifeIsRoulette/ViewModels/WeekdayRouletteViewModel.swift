@@ -7,33 +7,47 @@
 
 import Combine
 import Foundation
+import SwiftUI
 
 class WeekdayRouletteViewModel: ObservableObject {
-    @Published var options: [RouletteOption] = []
-    let rouletteSegments: [RouletteSegment] = [
-        RouletteSegment(number: 1, color: .yellow),
-        RouletteSegment(number: 2, color: .orange),
-        RouletteSegment(number: 3, color: .red),
-        RouletteSegment(number: 4, color: .pink),
-        RouletteSegment(number: 5, color: .purple),
-        RouletteSegment(number: 6, color: .blue),
-        RouletteSegment(number: 7, color: .cyan),
-        RouletteSegment(number: 8, color: .green),
-        RouletteSegment(number: 9, color: .mint)
-    ]
+    @Published var options: [String] = []
+    @Published var rouletteSegments: [RouletteSegment] = []
+       
+       init() {
+           options = loadWeedDayRouletteItems()
+           setupRouletteSegments()
+       }
     
-    init() {
-        options = loadWeekdayOptions()
-    }
+    private func loadWeedDayRouletteItems() -> [String] {
+           guard let url = Bundle.main.url(forResource: "default_weed_day_roulette_items", withExtension: "json") else {
+               print("JSONファイルが見つかりません")
+               return []
+           }
+           
+           do {
+               let data = try Data(contentsOf: url)
+               if let items = try JSONSerialization.jsonObject(with: data, options: []) as? [String] {
+                   return items
+               } else {
+                   print("JSONのパースに失敗しました")
+                   return []
+               }
+           } catch {
+               print("JSONファイルの読み込みエラー: \(error)")
+               return []
+           }
+       }
     
-    private func loadWeekdayOptions() -> [RouletteOption] {
-        return [
-            RouletteOption(id: UUID(), name: "Option 1", type: .weekday),
-            RouletteOption(id: UUID(), name: "Option 2", type: .weekday)
-        ]
-    }
-    
-    func spinRoulette() {
-        // ルーレットを回すロジックをここに実装
-    }
+    private func setupRouletteSegments() {
+           let randomOptions = options.shuffled().prefix(9) // ランダムに9項目を選択
+           rouletteSegments = randomOptions.enumerated().map { index, option in
+               RouletteSegment(number: index + 1, label: option, color: randomColor())
+           }
+       }
+       
+       private func randomColor() -> Color {
+           // 任意の色をランダムに生成
+           let colors: [Color] = [.yellow, .orange, .red, .pink, .purple, .blue, .cyan, .green, .mint]
+           return colors.randomElement() ?? .gray
+       }
 }

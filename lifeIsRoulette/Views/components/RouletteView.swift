@@ -7,9 +7,9 @@
 import SwiftUI
 
 
-struct RouletteSegment: Identifiable {
-    var id = UUID()
+struct RouletteSegment {
     var number: Int
+    let label: String
     var color: Color
 }
 
@@ -44,8 +44,8 @@ struct RouletteView: View {
                     let xOffset = center.x + cos(CGFloat(angle.radians)) * labelRadius
                     let yOffset = center.y + sin(CGFloat(angle.radians)) * labelRadius
                     
-                    Text("\(segments[index].number)")
-                        .font(.largeTitle)
+                    Text("\(segments[index].label.count > 4 ? segments[index].label.prefix(4) + "..." : segments[index].label)")
+                        .font(.body)
                         .foregroundColor(.white)
                         .position(x: xOffset, y: yOffset)
                 }
