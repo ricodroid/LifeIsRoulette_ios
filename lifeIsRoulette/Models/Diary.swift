@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import UIKit
 
-struct Diary: Identifiable {
-    let id = UUID()
+struct Diary: Identifiable, Codable {
+    var id = UUID()
     var title: String
     var content: String
+    var photoPath: String?  // 写真のファイルパスを保存
 }

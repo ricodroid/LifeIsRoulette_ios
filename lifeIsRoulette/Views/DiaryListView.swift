@@ -9,29 +9,24 @@ import SwiftUI
 
 struct DiaryListView: View {
     @StateObject var viewModel = DiaryListViewModel()
-    
+
     var body: some View {
-        List {
-            // 既存の日記の編集
-            ForEach(viewModel.diaries) { diary in
-                NavigationLink(destination: DiaryEditView(viewModel: DiaryEditViewModel(diary: diary), onSave: { updatedDiary in
-                    viewModel.updateDiary(diary: updatedDiary, title: updatedDiary.title, content: updatedDiary.content)
-                })) {
-                    Text(diary.title)
+        ScrollView {
+            LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 10), count: 3), spacing: 10) {
+                ForEach(viewModel.diaries) { diary in
+                    if let photoPath = diary.photoPath, let photo = FileManagerHelper.loadImage(from: photoPath) {
+                        Image(uiImage: photo)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 100, height: 100)  // 正方形の画像表示
+                            .clipped()
+                            .onTapGesture {
+                                // 詳細画面へ遷移
+                            }
+                    }
                 }
             }
-            .onDelete(perform: viewModel.deleteDiary) // 削除機能
-        }
-        .navigationTitle("日記一覧")
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                // 新しい日記の追加
-                NavigationLink(destination: DiaryEditView(viewModel: DiaryEditViewModel(), onSave: { newDiary in
-                    viewModel.addDiary(title: newDiary.title, content: newDiary.content)
-                })) {
-                    Text("追加")
-                }
-            }
+            .padding(10)
         }
     }
 }
