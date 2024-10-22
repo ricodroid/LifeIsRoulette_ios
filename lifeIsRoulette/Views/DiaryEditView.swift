@@ -8,34 +8,42 @@
 import SwiftUI
 
 struct DiaryEditView: View {
-    @StateObject var viewModel: DiaryEditViewModel
-    @Environment(\.presentationMode) var presentationMode
-    var onSave: (DiaryEntry) -> Void
+    @ObservedObject var viewModel: DiaryEditViewModel
+    var onSave: (Diary) -> Void
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         VStack {
-            TextField("タイトルを入力", text: $viewModel.title)
+            if let photo = viewModel.photo {
+                Image(uiImage: photo)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 200)
+            }
+            
+            TextField("タイトル", text: $viewModel.title)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
             
             TextEditor(text: $viewModel.content)
+                .frame(height: 200)
                 .border(Color.gray, width: 1)
                 .padding()
             
             Button(action: {
-                let savedDiary = viewModel.saveDiary()
-                onSave(savedDiary)
-                presentationMode.wrappedValue.dismiss() // 画面を閉じる
+                let newDiary = Diary(title: viewModel.title, content: viewModel.content)
+                onSave(newDiary)
+                dismiss()  // 保存後に前の画面に戻る
             }) {
                 Text("保存")
-                    .font(.title2)
+                    .font(.title)
                     .padding()
                     .background(Color.blue)
                     .foregroundColor(.white)
                     .cornerRadius(10)
             }
         }
-        .navigationTitle(viewModel.isNewEntry ? "新しい日記" : "日記の編集")
+        .navigationTitle(viewModel.isNew ? "新しい日記" : "日記を編集")
         .padding()
     }
 }
