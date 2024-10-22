@@ -24,21 +24,24 @@ struct RouletteSpinCalendarScreen: View {
             }
             
             // カレンダーグリッド（12列×2行で表示）
-            LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 12), spacing: 10) { // ← 12列設定
+            LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 12), spacing: 10) {
                 // 各月の前半（1日〜15日）を表示
                 ForEach(1...12, id: \.self) { month in
                     let daysInFirstHalf = getDaysInFirstHalf(for: month)
                     let color = calculateColor(for: daysInFirstHalf)
                     BoxView(color: color)
+                        .id("firstHalf-\(month)") // ユニークなidを指定
                 }
-                
+
                 // 各月の後半（16日〜月末）を表示
                 ForEach(1...12, id: \.self) { month in
                     let daysInSecondHalf = getDaysInSecondHalf(for: month)
                     let color = calculateColor(for: daysInSecondHalf)
                     BoxView(color: color)
+                        .id("secondHalf-\(month)") // ユニークなidを指定
                 }
             }
+
             .padding()
         }
         .onAppear {

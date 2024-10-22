@@ -15,12 +15,10 @@ struct WeekendRouletteView: View {
     var body: some View {
     
             VStack {
+                RouletteSpinCalendarScreen()
+                
                 if let selectedSegment = selectedSegment {
-                    Text("選ばれた項目: \(selectedSegment.label)")
-                        .font(.largeTitle)
-                        .padding()
-                } else {
-                    Text("ルーレットを回して項目を選択")
+                    Text("\(selectedSegment.label)")
                         .font(.largeTitle)
                         .padding()
                 }
