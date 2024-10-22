@@ -10,6 +10,7 @@ import SwiftUI
 struct WeekdayRouletteView: View {
     @StateObject var viewModel = WeekdayRouletteViewModel()
     @State private var selectedSegment: RouletteSegment? = nil
+    @State private var shouldNavigateToActionView = false
     
     var body: some View {
         VStack {
@@ -23,9 +24,13 @@ struct WeekdayRouletteView: View {
                     .padding()
             }
             
-            RouletteView(segments: viewModel.rouletteSegments, selectedSegment: $selectedSegment)
+            RouletteView(segments: viewModel.rouletteSegments, shouldNavigateToActionView: $shouldNavigateToActionView, selectedSegment: $selectedSegment)
                 .frame(width: 300, height: 300)
-        
+            
+            // ここにActionViewへの遷移が含まれる
+                .navigationDestination(isPresented: $shouldNavigateToActionView) {
+                    ActionView()
+                }
         }
     }
 }

@@ -15,6 +15,7 @@ struct RouletteSegment {
 
 struct RouletteView: View {
     let segments: [RouletteSegment]
+    @Binding var shouldNavigateToActionView: Bool
     @Binding var selectedSegment: RouletteSegment?
     @State private var rotation: Double = 0
     @State private var isSpinning = false
@@ -82,6 +83,11 @@ struct RouletteView: View {
             
             selectedSegment = segments[selectedIndex >= 0 ? selectedIndex : (selectedIndex + segments.count) % segments.count]
         }
+        
+        // 回転が終了したら画面遷移のフラグをtrueに設定
+       DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+           shouldNavigateToActionView = true
+       }
     }
 }
 
