@@ -14,14 +14,20 @@ class DiaryListViewModel: ObservableObject {
         let photoFileName = "\(UUID().uuidString).jpg"
         var photoPath: String? = nil
         
+        // 写真をファイルに保存
         if let photo = photo, let savedURL = FileManagerHelper.saveImage(photo, withName: photoFileName) {
             photoPath = savedURL.lastPathComponent  // ファイルパスを保存
         }
         
+        // 新しい日記を作成
         let newDiary = Diary(title: title, content: content, photoPath: photoPath)
         diaries.append(newDiary)
-        saveDiaries()  // 永続化
+        
+        // 日記リストを保存
+        saveDiaries()
+        print("1022 保存された日記: \(diaries)")  // 保存時のデバッグ用
     }
+
     
     // 永続化のためにUserDefaultsまたは他の方法で保存
     func saveDiaries() {
@@ -36,5 +42,6 @@ class DiaryListViewModel: ObservableObject {
            let decoded = try? JSONDecoder().decode([Diary].self, from: savedData) {
             diaries = decoded
         }
+        print("1022 \(diaries)")  // コンソールでデバッグ
     }
 }

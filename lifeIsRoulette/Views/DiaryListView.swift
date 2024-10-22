@@ -4,29 +4,44 @@
 //
 //  Created by r_murata on 2024/10/18.
 //
-
 import SwiftUI
 
 struct DiaryListView: View {
     @StateObject var viewModel = DiaryListViewModel()
-
+    @ObservedObject var diaryListViewModel: DiaryListViewModel
+    
     var body: some View {
-        ScrollView {
-            LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 10), count: 3), spacing: 10) {
-                ForEach(viewModel.diaries) { diary in
-                    if let photoPath = diary.photoPath, let photo = FileManagerHelper.loadImage(from: photoPath) {
-                        Image(uiImage: photo)
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 100, height: 100)  // 正方形の画像表示
-                            .clipped()
-                            .onTapGesture {
-                                // 詳細画面へ遷移
+        NavigationView {
+            ScrollView {
+                LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
+                    ForEach(viewModel.diaries, id: \.id) { diary in
+                        VStack {
+                            if let photoPath = diary.photoPath,
+                               let image = FileManagerHelper.loadImage(from: photoPath) {
+                                Image(uiImage: image)
+                                    .resizable()
+                                    .scaledToFill()   // 画像をビューに合わせて拡大縮小
+                                    .frame(width: 150, height: 150)  // 正方形に設定
+                                    .clipped()  // 画像が正方形の枠からはみ出さないようにクリップ
+                            } else {
+                                // 写真がない場合のプレースホルダー
+                                Rectangle()
+                                    .fill(Color.gray)
+                                    .frame(width: 150, height: 150)
                             }
+
+                            Text(diary.title)
+                                .font(.headline)
+                                .padding(.top, 8)
+                        }
                     }
                 }
+                .padding()
             }
-            .padding(10)
+            .navigationTitle("Diary List")
+            .onAppear {
+                viewModel.loadDiaries()  // 日記を読み込み
+            }
         }
     }
 }

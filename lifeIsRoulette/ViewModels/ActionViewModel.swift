@@ -9,6 +9,7 @@ import Foundation
 
 class ActionViewModel: ObservableObject {
     @Published var currentAction: String = ""
+    @Published var diaryListViewModel = DiaryListViewModel()
     
     // ルーレット結果に基づいたアクションを設定する
     func setActionBasedOnRoulette(result: String) {

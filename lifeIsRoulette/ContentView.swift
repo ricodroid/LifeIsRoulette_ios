@@ -7,17 +7,18 @@
 
 import SwiftUI
 
-// ルーティング
 struct ContentView: View {
+    @StateObject var diaryListViewModel = DiaryListViewModel()  // StateObjectとして宣言
+
     var body: some View {
         NavigationStack {
             VStack {
                 NavigationLink("平日ルーレット", destination: WeekdayRouletteView())
                 NavigationLink("休日ルーレット", destination: WeekendRouletteView())
                 NavigationLink("Action", destination: ActionView())
-                NavigationLink("日記一覧", destination: DiaryListView())
+                NavigationLink("日記一覧", destination: DiaryListView(diaryListViewModel: diaryListViewModel))  // diaryListViewModelを渡す
             }
-            .navigationTitle("ルーレットメニュー")  // navigationBarTitleからnavigationTitleへ
+            .navigationTitle("ルーレットメニュー")
         }
     }
 }

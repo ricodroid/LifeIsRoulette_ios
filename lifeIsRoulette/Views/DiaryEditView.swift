@@ -4,7 +4,6 @@
 //
 //  Created by r_murata on 2024/10/18.
 //
-
 import SwiftUI
 
 struct DiaryEditView: View {
@@ -62,9 +61,13 @@ struct DiaryEditView: View {
             }
         }
 
-        // 日記オブジェクトを作成して保存
+        // 日記オブジェクトを作成
         let newDiary = Diary(title: viewModel.title, content: viewModel.content, photoPath: photoPath)
+
+        // `addDiary` を呼び出して日記リストに追加
         onSave(newDiary)
+
+        // 画面を閉じる
         dismiss()
     }
 }

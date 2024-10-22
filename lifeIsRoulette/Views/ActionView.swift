@@ -58,13 +58,17 @@ struct ActionView: View {
 
                 // 撮影した写真をDiaryEditViewに渡して遷移
                 .navigationDestination(isPresented: $navigateToDiaryEditView) {
-                    if let photo = takenPhoto {
+                    if takenPhoto != nil {
                         DiaryEditView(
-                            viewModel: DiaryEditViewModel(photo: photo),
-                            onSave: { newDiary in
-                                // 保存処理
-                            }
-                        )
+                           viewModel: DiaryEditViewModel(photo: takenPhoto),
+                           onSave: { newDiary in
+                               // ActionViewModel内のdiaryListViewModelに日記を追加
+                               viewModel.diaryListViewModel.addDiary(
+                                   title: newDiary.title,
+                                   content: newDiary.content,
+                                   photo: takenPhoto)  // 日記と写真を保存
+                           }
+                       )
                     }
                 }
             }
