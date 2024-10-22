@@ -30,6 +30,7 @@
 		1DF403892CC793C800963350 /* DiaryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF403882CC793C800963350 /* DiaryDetailView.swift */; };
 		1DF4038B2CC7944300963350 /* FileManagerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF4038A2CC7944300963350 /* FileManagerHelper.swift */; };
 		1DF4038D2CC7A66300963350 /* RouletteSpinCalendarScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF4038C2CC7A66300963350 /* RouletteSpinCalendarScreen.swift */; };
+		1DF4038F2CC7AFAE00963350 /* SpinDateStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF4038E2CC7AFAE00963350 /* SpinDateStorage.swift */; };
 		3FBEEC0C2CC4F39600963AC6 /* RouletteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBEEC0B2CC4F39600963AC6 /* RouletteView.swift */; };
 		3FBEEC0F2CC4FA7800963AC6 /* default_weed_day_roulette_items.json in Resources */ = {isa = PBXBuildFile; fileRef = 3FBEEC0E2CC4FA7800963AC6 /* default_weed_day_roulette_items.json */; };
 		3FBEEC112CC4FBCA00963AC6 /* default_weekend_roulette_items.json in Resources */ = {isa = PBXBuildFile; fileRef = 3FBEEC102CC4FBCA00963AC6 /* default_weekend_roulette_items.json */; };
@@ -61,6 +62,7 @@
 		1DF403882CC793C800963350 /* DiaryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDetailView.swift; sourceTree = "<group>"; };
 		1DF4038A2CC7944300963350 /* FileManagerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerHelper.swift; sourceTree = "<group>"; };
 		1DF4038C2CC7A66300963350 /* RouletteSpinCalendarScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouletteSpinCalendarScreen.swift; sourceTree = "<group>"; };
+		1DF4038E2CC7AFAE00963350 /* SpinDateStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinDateStorage.swift; sourceTree = "<group>"; };
 		3FBEEC0B2CC4F39600963AC6 /* RouletteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouletteView.swift; sourceTree = "<group>"; };
 		3FBEEC0E2CC4FA7800963AC6 /* default_weed_day_roulette_items.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = default_weed_day_roulette_items.json; sourceTree = "<group>"; };
 		3FBEEC102CC4FBCA00963AC6 /* default_weekend_roulette_items.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = default_weekend_roulette_items.json; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				1DF403652CC285FC00963350 /* RouletteOption.swift */,
 				1DF403822CC786A600963350 /* Diary.swift */,
 				1DF4038A2CC7944300963350 /* FileManagerHelper.swift */,
+				1DF4038E2CC7AFAE00963350 /* SpinDateStorage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				1DF403532CC2841900963350 /* ContentView.swift in Sources */,
 				1DF4036A2CC2862C00963350 /* WeekdayRouletteView.swift in Sources */,
 				1DF403642CC285C300963350 /* DiaryEntry.swift in Sources */,
+				1DF4038F2CC7AFAE00963350 /* SpinDateStorage.swift in Sources */,
 				1DF403762CC2882500963350 /* DiaryListViewModel.swift in Sources */,
 				1DF403892CC793C800963350 /* DiaryDetailView.swift in Sources */,
 				1DF4037A2CC288B000963350 /* DiaryEditViewModel.swift in Sources */,

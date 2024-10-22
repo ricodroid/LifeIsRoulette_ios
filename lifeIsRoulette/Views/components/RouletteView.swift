@@ -19,7 +19,8 @@ struct RouletteView: View {
     @Binding var selectedSegment: RouletteSegment?
     @State private var rotation: Double = 0
     @State private var isSpinning = false
-    
+    @State private var spinDates: Set<Date> = []
+
     var body: some View {
         GeometryReader { geometry in
             let radius = min(geometry.size.width, geometry.size.height) / 2
@@ -82,12 +83,23 @@ struct RouletteView: View {
             let selectedIndex = Int((360 - correctedRotation).truncatingRemainder(dividingBy: 360) / segmentAngle)
             
             selectedSegment = segments[selectedIndex >= 0 ? selectedIndex : (selectedIndex + segments.count) % segments.count]
+            
+            saveSpinDate() // 回転した日付を保存
         }
         
         // 回転が終了したら画面遷移のフラグをtrueに設定
        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
            shouldNavigateToActionView = true
        }
+    }
+    
+    // 日付を保存する
+    func saveSpinDate() {
+        let today = Calendar.current.startOfDay(for: Date())
+        if !spinDates.contains(today) {
+            spinDates.insert(today)
+            SpinDateStorage.shared.saveSpinDates(spinDates)
+        }
     }
 }
 

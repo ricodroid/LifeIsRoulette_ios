@@ -28,7 +28,7 @@ struct RouletteSpinCalendarScreen: View {
                 // 各月の前半（1日〜15日）を表示
                 ForEach(1...12, id: \.self) { month in
                     let daysInFirstHalf = getDaysInFirstHalf(for: month)
-                    let color = calculateColor(for: daysInFirstHalf)
+                    let color = calculateColor(for: daysInFirstHalf, totalDays: 15) // 1日〜15日を対象
                     BoxView(color: color)
                         .id("firstHalf-\(month)") // ユニークなidを指定
                 }
@@ -36,7 +36,8 @@ struct RouletteSpinCalendarScreen: View {
                 // 各月の後半（16日〜月末）を表示
                 ForEach(1...12, id: \.self) { month in
                     let daysInSecondHalf = getDaysInSecondHalf(for: month)
-                    let color = calculateColor(for: daysInSecondHalf)
+                    let totalDaysInSecondHalf = daysInSecondHalf.count
+                    let color = calculateColor(for: daysInSecondHalf, totalDays: totalDaysInSecondHalf) // 16日〜月末を対象
                     BoxView(color: color)
                         .id("secondHalf-\(month)") // ユニークなidを指定
                 }
@@ -68,19 +69,19 @@ struct RouletteSpinCalendarScreen: View {
     }
     
     // 指定した日付に基づいて色を計算
-    func calculateColor(for dates: [Date]) -> Color {
+    func calculateColor(for dates: [Date], totalDays: Int) -> Color {
         let spinCount = dates.filter { spinDates.contains($0) }.count
-        return spinCount > 0 ? Color.orange : Color.gray.opacity(0.3)  // デフォルトは薄いグレー、回した日付はオレンジ
+        if spinCount == 0 {
+           return Color.gray.opacity(0.1) // 0回の場合は薄いグレー
+       }
+        let colorIntensity = Double(spinCount) / Double(totalDays) // ルーレットを回した割合で色の濃さを決定
+        return Color.orange.opacity(colorIntensity) // 回した割合に応じてオレンジ色を濃くする
     }
     
     // ユーザーがルーレットを回した日付を読み込む
     func loadSpinDates() {
-        // 保存した日付のデータを取得（ここでは仮のデータ）
-        // todo ルーレットを回すたびに日付を端末内に保存するようにする
-        spinDates = [
-            calendar.date(from: DateComponents(year: 2024, month: 1, day: 5))!,
-            calendar.date(from: DateComponents(year: 2024, month: 1, day: 18))!,
-        ]
+        // SpinDateStorageを使って保存された日付を読み込む
+        spinDates = SpinDateStorage.shared.loadSpinDates()
     }
 }
 
@@ -94,6 +95,7 @@ struct BoxView: View {
             .cornerRadius(4)
     }
 }
+
 
 //struct RouletteSpinCalendarScreen_Previews: PreviewProvider {
 //    static var previews: some View {
