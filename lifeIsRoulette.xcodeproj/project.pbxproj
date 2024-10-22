@@ -26,6 +26,7 @@
 		1DF4037A2CC288B000963350 /* DiaryEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF403792CC288B000963350 /* DiaryEditViewModel.swift */; };
 		1DF403812CC7866000963350 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF403802CC7866000963350 /* CameraView.swift */; };
 		1DF403832CC786A600963350 /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF403822CC786A600963350 /* Diary.swift */; };
+		1DF403872CC78C0A00963350 /* SwipeToCameraButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF403862CC78C0A00963350 /* SwipeToCameraButton.swift */; };
 		3FBEEC0C2CC4F39600963AC6 /* RouletteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBEEC0B2CC4F39600963AC6 /* RouletteView.swift */; };
 		3FBEEC0F2CC4FA7800963AC6 /* default_weed_day_roulette_items.json in Resources */ = {isa = PBXBuildFile; fileRef = 3FBEEC0E2CC4FA7800963AC6 /* default_weed_day_roulette_items.json */; };
 		3FBEEC112CC4FBCA00963AC6 /* default_weekend_roulette_items.json in Resources */ = {isa = PBXBuildFile; fileRef = 3FBEEC102CC4FBCA00963AC6 /* default_weekend_roulette_items.json */; };
@@ -52,6 +53,8 @@
 		1DF403792CC288B000963350 /* DiaryEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryEditViewModel.swift; sourceTree = "<group>"; };
 		1DF403802CC7866000963350 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		1DF403822CC786A600963350 /* Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
+		1DF403852CC78A1500963350 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		1DF403862CC78C0A00963350 /* SwipeToCameraButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToCameraButton.swift; sourceTree = "<group>"; };
 		3FBEEC0B2CC4F39600963AC6 /* RouletteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouletteView.swift; sourceTree = "<group>"; };
 		3FBEEC0E2CC4FA7800963AC6 /* default_weed_day_roulette_items.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = default_weed_day_roulette_items.json; sourceTree = "<group>"; };
 		3FBEEC102CC4FBCA00963AC6 /* default_weekend_roulette_items.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = default_weekend_roulette_items.json; sourceTree = "<group>"; };
@@ -87,6 +90,7 @@
 		1DF4034F2CC2841900963350 /* lifeIsRoulette */ = {
 			isa = PBXGroup;
 			children = (
+				1DF403852CC78A1500963350 /* Info.plist */,
 				3FBEEC0D2CC4F9BB00963AC6 /* Resources */,
 				1DF403602CC2855700963350 /* Views */,
 				1DF4035F2CC2854B00963350 /* ViewModels */,
@@ -148,6 +152,7 @@
 			children = (
 				3FBEEC0B2CC4F39600963AC6 /* RouletteView.swift */,
 				1DF403802CC7866000963350 /* CameraView.swift */,
+				1DF403862CC78C0A00963350 /* SwipeToCameraButton.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -238,6 +243,7 @@
 				1DF403782CC2888A00963350 /* DiaryEditView.swift in Sources */,
 				1DF403622CC2856900963350 /* App.swift in Sources */,
 				1DF403682CC2861000963350 /* WeekdayRouletteViewModel.swift in Sources */,
+				1DF403872CC78C0A00963350 /* SwipeToCameraButton.swift in Sources */,
 				1DF403832CC786A600963350 /* Diary.swift in Sources */,
 				1DF403532CC2841900963350 /* ContentView.swift in Sources */,
 				1DF4036A2CC2862C00963350 /* WeekdayRouletteView.swift in Sources */,
@@ -387,6 +393,10 @@
 				DEVELOPMENT_TEAM = FC5G5LU4MJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = lifeIsRoulette/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "このアプリを使うにはカメラの権限が必要です。";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -416,6 +426,10 @@
 				DEVELOPMENT_TEAM = FC5G5LU4MJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = lifeIsRoulette/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "このアプリを使うにはカメラの権限が必要です。";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
