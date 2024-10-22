@@ -13,6 +13,8 @@ struct SwipeToCameraButton: View {
     let buttonHeight: CGFloat = 50  // ボタン全体の高さ
     let circleSize: CGFloat = 50    // スライダーの円のサイズ
     let activationThreshold: CGFloat = 0.6  // カメラを起動するスワイプ距離の閾値（60%）
+    
+    var onImageCaptured: (UIImage) -> Void  // 画像をキャプチャするクロージャ
 
     var body: some View {
         ZStack {
@@ -70,6 +72,7 @@ struct SwipeToCameraButton: View {
             // カメラの起動処理
             CameraView(onImageCaptured: { image in
                 // カメラで撮影した画像を受け取る処理
+                onImageCaptured(image)  // キャプチャされた画像を親ビューに渡す
             }, onDismiss: {
                 self.showCamera = false
             })
