@@ -29,7 +29,7 @@ struct WeekdayRouletteView: View {
             
             // ここにActionViewへの遷移が含まれる
                 .navigationDestination(isPresented: $shouldNavigateToActionView) {
-                    ActionView()
+                    ActionView(selectedSegment: selectedSegment)
                 }
         }
     }

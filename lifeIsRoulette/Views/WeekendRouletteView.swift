@@ -30,7 +30,7 @@ struct WeekendRouletteView: View {
                 
                 // ActionViewへの遷移リンク
                     .navigationDestination(isPresented: $shouldNavigateToActionView) {
-                        ActionView()
+                        ActionView(selectedSegment: selectedSegment)
                     }
             }
 
