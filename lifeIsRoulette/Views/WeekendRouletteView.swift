@@ -11,6 +11,7 @@ struct WeekendRouletteView: View {
     @StateObject var viewModel = WeekendRouletteViewModel()
     @State private var selectedSegment: RouletteSegment? = nil
     @State private var shouldNavigateToActionView = false
+    @ObservedObject var rouletteViewModel: WeekendRouletteViewModel
     
     var body: some View {
     
@@ -28,7 +29,7 @@ struct WeekendRouletteView: View {
                 
                 // ActionViewへの遷移リンク
                     .navigationDestination(isPresented: $shouldNavigateToActionView) {
-                        ActionView(selectedSegment: selectedSegment)
+                        ActionView(selectedSegment: selectedSegment, rouletteViewModel: rouletteViewModel)
                     }
             }
 

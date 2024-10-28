@@ -11,6 +11,7 @@ struct WeekdayRouletteView: View {
     @StateObject var viewModel = WeekdayRouletteViewModel()
     @State private var selectedSegment: RouletteSegment? = nil
     @State private var shouldNavigateToActionView = false
+    @ObservedObject var rouletteViewModel: WeekdayRouletteViewModel
     
     var body: some View {
         RouletteSpinCalendarScreen()
@@ -25,9 +26,9 @@ struct WeekdayRouletteView: View {
             RouletteView(segments: viewModel.rouletteSegments, shouldNavigateToActionView: $shouldNavigateToActionView, selectedSegment: $selectedSegment)
                 .frame(width: 300, height: 300)
             
-            // ここにActionViewへの遷移が含まれる
+                // ここにActionViewへの遷移が含まれる
                 .navigationDestination(isPresented: $shouldNavigateToActionView) {
-                    ActionView(selectedSegment: selectedSegment)
+                    ActionView(selectedSegment: selectedSegment, rouletteViewModel: rouletteViewModel)
                 }
         }
     }
