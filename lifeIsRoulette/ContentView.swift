@@ -23,6 +23,8 @@ struct ContentView: View {
                 NavigationLink("Action", destination: ActionView(selectedSegment: nil, rouletteViewModel: weekdayRouletteViewModel))
                 // 日記一覧画面
                 NavigationLink("日記一覧", destination: DiaryListView(diaryListViewModel: diaryListViewModel))  // diaryListViewModelを渡す
+                // ルーレット項目追加画面
+                NavigationLink("項目追加", destination: AddRouletteItemView())
             }
             .navigationTitle("ルーレットメニュー")
         }
