@@ -24,32 +24,10 @@ struct ActionView<VM: ObservableObject>: View {
                 }
 
                 Text(viewModel.currentAction)
-                    .font(.title)
-                    .padding()
-
-                // ルーレット結果でアクションを設定するボタン
-                Button(action: {
-                    viewModel.setActionBasedOnRoulette(result: "新しい挑戦")
-                }) {
-                    Text("ルーレット結果でアクションを設定")
-                        .font(.title2)
-                        .padding()
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
-                }
-
-                // カスタムアクションを実行するボタン
-                Button(action: {
-                    viewModel.performCustomAction(actionName: "例のアクション")
-                }) {
-                    Text("カスタムアクションを実行")
-                        .font(.title2)
-                        .padding()
-                        .background(Color.green)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
-                }
+                   .font(.title2)
+                   .foregroundColor(.secondary)
+                   .multilineTextAlignment(.center)
+                   .padding([.leading, .trailing], 24)
 
                 // カメラを起動するスワイプボタンを表示
                 SwipeToCameraButton(onImageCaptured: { image in
