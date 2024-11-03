@@ -19,6 +19,14 @@ class WeekendRouletteViewModel: ObservableObject {
         setupRouletteSegments()
     }
     
+    private func loadWeekEndItems() -> [String] {
+        guard let data = UserDefaults.standard.data(forKey: "weekEndItems"),
+              let items = try? JSONDecoder().decode([RouletteItem].self, from: data) else {
+            return []
+        }
+        return items.map { $0.name }
+    }
+    
     // ルーレット項目を削除するメソッド
     func removeRouletteItem(_ item: String) {
         if let index = options.firstIndex(of: item) {
@@ -31,22 +39,23 @@ class WeekendRouletteViewModel: ObservableObject {
 
     private func loadWeedEndRouletteItems() -> [String] {
         guard let url = Bundle.main.url(forResource: "default_weekend_roulette_items", withExtension: "json") else {
-            print("JSONファイル 'default_weekend_roulette_items.json' が見つかりません")
+            print("JSON file 'default_weekend_roulette_items.json' not found")
             return []
         }
         
         do {
             let data = try Data(contentsOf: url)
             if let items = try JSONSerialization.jsonObject(with: data, options: []) as? [String] {
-                // 削除された項目を除外して返す
                 let removedItems = getRemovedItems()
-                return items.filter { !removedItems.contains($0) }
+                // Load and include UserDefaults-saved weekend items
+                let savedWeekEndItems = loadWeekEndItems()
+                return (items + savedWeekEndItems).filter { !removedItems.contains($0) }
             } else {
-                print("JSONのパースに失敗しました: \(url)")
+                print("Failed to parse JSON: \(url)")
                 return []
             }
         } catch {
-            print("JSONファイルの読み込みエラー: \(error)")
+            print("Error loading JSON: \(error)")
             return []
         }
     }

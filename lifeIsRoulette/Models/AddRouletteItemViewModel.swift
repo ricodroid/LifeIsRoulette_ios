@@ -57,6 +57,7 @@ class AddRouletteItemViewModel: ObservableObject {
             weekDayItems.append(newItem)
         } else {
             weekEndItems.append(newItem)
+            saveWeekEndItems()
         }
         
         saveItems()
@@ -68,7 +69,16 @@ class AddRouletteItemViewModel: ObservableObject {
             weekDayItems.remove(atOffsets: offsets)
         } else {
             weekEndItems.remove(atOffsets: offsets)
+            saveWeekEndItems() // Save updated weekend items
         }
         saveItems()
     }
+    
+    private func saveWeekEndItems() {
+        if let data = try? JSONEncoder().encode(weekEndItems) {
+            UserDefaults.standard.set(data, forKey: weekEndKey)
+        }
+    }
+    
+    
 }
